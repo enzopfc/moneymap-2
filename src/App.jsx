@@ -11,7 +11,7 @@ export default function App() {
       <Navbar onToggleMenu={() => setMenuAberto((v) => !v)} />
       <div className="layout-principal">
         <Sidebar aberto={menuAberto} onFechar={() => setMenuAberto(false)} />
-        <main className="flex-1">
+        <main className="flex-1 animate-fade-in">
           <Rotas />
         </main>
       </div>

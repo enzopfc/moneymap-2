@@ -1,24 +1,53 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Menu, LogOut, DollarSign } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 
 export default function Navbar({ onToggleMenu }) {
-  const { token, sair } = useAuth()
+  const { token, usuario, sair } = useAuth()
   const navegar = useNavigate()
+  
   function aoSair() { sair(); navegar('/login') }
+  
   return (
-    <header className="w-full bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <button className="md:hidden p-2 rounded hover:bg-gray-100" onClick={onToggleMenu} aria-label="Abrir menu">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 shadow-lg backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <button 
+            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors" 
+            onClick={onToggleMenu} 
+            aria-label="Abrir menu"
+          >
+            <Menu className="w-6 h-6 text-white" />
           </button>
-          <Link to="/dashboard" className="text-lg font-bold text-emerald-600">MoneyMapp TCC</Link>
+          <Link to="/dashboard" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors">
+            <DollarSign className="w-8 h-8" />
+            <span className="text-xl font-bold">MoneyMapp TCC</span>
+          </Link>
         </div>
+        
         {token ? (
-          <button onClick={aoSair} className="text-sm px-3 py-1.5 bg-emerald-600 text-white rounded hover:bg-emerald-700">Sair</button>
+          <div className="flex items-center gap-4">
+            {usuario && (
+              <span className="hidden md:block text-blue-100 text-sm">
+                Olá, {usuario.nome || 'Usuário'}!
+              </span>
+            )}
+            <button 
+              onClick={aoSair} 
+              className="flex items-center gap-2 px-4 py-2 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-all duration-200 backdrop-blur-sm"
+            >
+              <LogOut className="w-4 h-4" />
+              <span className="hidden sm:block">Sair</span>
+            </button>
+          </div>
         ) : (
-          <Link to="/login" className="text-sm px-3 py-1.5 border rounded hover:bg-gray-50">Entrar</Link>
+          <Link 
+            to="/login" 
+            className="px-4 py-2 bg-white text-blue-700 rounded-lg hover:bg-blue-50 transition-colors font-medium"
+          >
+            Entrar
+          </Link>
         )}
       </div>
     </header>
