@@ -36,12 +36,12 @@ export default function Login() {
 
   function entrarModoDemo() {
     ativarDemo()
-    navegar('/dashboard')
+    navegar('/home')
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="h-screen w-screen bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 flex items-center justify-center p-4 overflow-hidden">
+      <div className="w-full max-w-md transform transition-all duration-300 hover:scale-105">
         {/* Logo e título */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -52,7 +52,7 @@ export default function Login() {
         </div>
 
         {/* Card de login */}
-        <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8">
+        <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 transform transition-all duration-300">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Acessar conta</h2>
           
           {erro && <div className="mb-6"><Alerta tipo="erro" mensagem={erro} /></div>}
@@ -90,7 +90,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={carregando}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3 rounded-xl hover:from-blue-700 hover:to-indigo-700 hover:shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2 transform"
             >
               {carregando ? (
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -109,7 +109,7 @@ export default function Login() {
           {/* Botão modo demo */}
           <button
             onClick={entrarModoDemo}
-            className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold py-3 rounded-lg hover:from-emerald-600 hover:to-teal-700 transition-all duration-200"
+            className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold py-3 rounded-xl hover:from-emerald-600 hover:to-teal-700 hover:shadow-lg hover:scale-105 transition-all duration-300 transform"
           >
             Entrar em modo demonstração
           </button>
