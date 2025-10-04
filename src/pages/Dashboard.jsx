@@ -51,14 +51,14 @@ function StatCard({ title, value, subtitle, icon: Icon, trend, trendValue, color
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 hover:-translate-y-1 group cursor-pointer">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-gray-600 mb-1">{title}</p>
-          <p className="text-3xl font-bold text-gray-900">{value}</p>
-          {subtitle && <p className="text-sm text-gray-500 mt-1">{subtitle}</p>}
+          <p className="text-sm font-medium text-gray-600 mb-1 group-hover:text-gray-700 transition-colors">{title}</p>
+          <p className="text-3xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors">{value}</p>
+          {subtitle && <p className="text-sm text-gray-500 mt-1 group-hover:text-gray-600 transition-colors">{subtitle}</p>}
         </div>
-        <div className={`w-14 h-14 bg-gradient-to-br ${colorClasses[color]} rounded-xl flex items-center justify-center`}>
+        <div className={`w-14 h-14 bg-gradient-to-br ${colorClasses[color]} rounded-xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
           <Icon className="w-7 h-7 text-white" />
         </div>
       </div>
@@ -82,7 +82,7 @@ function StatCard({ title, value, subtitle, icon: Icon, trend, trendValue, color
 
 function TransactionItem({ transaction }) {
   return (
-    <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0">
+    <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-all duration-200 rounded-lg px-2 -mx-2 group">
       <div className="flex items-center">
         <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
           transaction.tipo === 'receita' ? 'bg-green-100' : 'bg-red-100'
@@ -116,15 +116,15 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6 animate-in fade-in duration-500">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard Financeiro</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Dashboard Financeiro</h1>
         <p className="text-gray-600">Bem-vindo de volta! Aqui está um resumo das suas finanças.</p>
       </div>
 
       {/* Cards de Resumo */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         <StatCard 
           title="Saldo Total"
           value={formatMoney(mockData.saldo)}
@@ -167,7 +167,7 @@ export default function Dashboard() {
       </div>
 
       {/* Gráficos */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6">
         {/* Gráfico de Barras - Receitas vs Despesas */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Receitas vs Despesas</h3>

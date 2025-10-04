@@ -1,5 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+              <button 
+                onClick={handleDemoAccess}
+                disabled={carregandoDemo}
+                className={`bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform shadow-lg flex items-center gap-2 justify-center ${
+                  carregandoDemo 
+                    ? 'opacity-70 cursor-not-allowed' 
+                    : 'hover:bg-blue-700 hover:scale-105 active:scale-95'
+                }`}
+              >
+                {carregandoDemo ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                    Carregando...
+                  </>
+                ) : (
+                  <>
+                    Entrar em demonstração
+                    <ChevronRight className="w-5 h-5" />
+                  </>
+                )}
+              </button>
+              
+              <button 
+                onClick={() => navigate('/login')}
+                className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
+              >
+                Fazer login
+              </button>
+            </div>r-dom'
 import { 
   ChevronRight, 
   PiggyBank, 
@@ -16,10 +45,16 @@ import {
 export default function Home() {
   const navigate = useNavigate()
 
-  const handleDemoAccess = () => {
-    // Simula login automático para demonstração
-    localStorage.setItem('demoMode', 'true')
-    navigate('/dashboard')
+  const [carregandoDemo, setCarregandoDemo] = useState(false)
+
+  const handleDemoAccess = async () => {
+    setCarregandoDemo(true)
+    // Simula loading para melhor UX
+    setTimeout(() => {
+      localStorage.setItem('demoMode', 'true')
+      navigate('/dashboard')
+      setCarregandoDemo(false)
+    }, 1500)
   }
 
   return (
