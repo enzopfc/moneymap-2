@@ -1,6 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { BookOpen, TrendingUp, PiggyBank, Shield, Target, Lightbulb, Play, Clock, CheckCircle, Star } from 'lucide-react'
+import { ChevronRight, BookOpen, TrendingUp, PiggyBank, Shield, Target, Lightbulb, Play, Clock, CheckCircle, Star } from 'lucide-react'ct, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import {  return (
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group">
+      <div className="flex items-start justify-between mb-4">
+        <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${iconMap[categoria.cor]} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+          <Icon className="w-6 h-6 text-white" />
+        </div>
+        <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-2 py-1 rounded-full">{categoria.artigos} artigos</span>
+      </div>n, TrendingUp, PiggyBank, Shield, Target, Lightbulb, Play, Clock, CheckCircle, Star } from 'lucide-react'
 
 // Dados mockados para demonstração
 const categorias = [

@@ -4,8 +4,10 @@ import Rotas from './routes/Rotas'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import BotaoVoltar from './components/BotaoVoltar'
+import ThemeToggle from './components/ThemeToggle'
+import { ThemeProvider } from './contexts/ThemeContext'
 
-export default function App() {
+function AppContent() {
   const [menuAberto, setMenuAberto] = useState(false)
   const location = useLocation()
   
@@ -16,7 +18,8 @@ export default function App() {
   // Se é uma página sem sidebar (home, login), renderizar apenas o conteúdo
   if (!mostrarSidebar) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <ThemeToggle />
         <Rotas />
       </div>
     )
@@ -24,7 +27,8 @@ export default function App() {
 
   // Para páginas com sidebar (dashboard e outras)
   return (
-    <div className="h-screen w-screen overflow-hidden bg-gray-50">
+    <div className="h-screen w-screen overflow-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <ThemeToggle />
       <div className="flex h-full">
         <Sidebar aberto={menuAberto} onFechar={() => setMenuAberto(false)} />
         <main className="flex-1 ml-0 md:ml-20 transition-all duration-300 ease-in-out overflow-auto relative">
@@ -35,7 +39,7 @@ export default function App() {
           
           {/* Copyright Footer */}
           <footer className="hidden md:block absolute bottom-4 right-4">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
               © 2024 MoneyMapp TCC. Todos os direitos reservados.
             </p>
           </footer>
@@ -45,12 +49,20 @@ export default function App() {
       {/* Menu Toggle para Mobile */}
       <button
         onClick={() => setMenuAberto(true)}
-        className="md:hidden fixed top-4 left-4 z-30 p-3 bg-white rounded-lg shadow-lg border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
+        className="md:hidden fixed top-4 left-4 z-30 p-3 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
       >
-        <svg className="w-6 h-6 text-gray-700 transition-colors hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-gray-700 dark:text-gray-200 transition-colors hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   )
 }

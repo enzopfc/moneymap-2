@@ -567,12 +567,12 @@ export default function ArtigoDetalhes() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Botão Voltar */}
-      <div className="bg-white border-b border-gray-200 px-6 py-4">
+      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4">
         <button
           onClick={() => navigate('/educacao')}
-          className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group"
+          className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
           <span className="font-medium">Voltar para Educação</span>
@@ -581,8 +581,17 @@ export default function ArtigoDetalhes() {
 
       {/* Conteúdo do Artigo */}
       <div className="max-w-4xl mx-auto px-6 py-8">
+        {/* Imagem de Capa */}
+        <div className="mb-8">
+          <img 
+            src={`https://images.unsplash.com/photo-${artigo.id === 1 ? '1554224154-f72a479e5aa5' : artigo.id === 2 ? '1559526324-4b87b5e36e44' : artigo.id === 3 ? '1579621970563-40767b35a3aa' : '1611974789855-9c2a0a7236a3'}?auto=format&fit=crop&w=1200&h=400&q=80`}
+            alt={artigo.titulo}
+            className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
+          />
+        </div>
+        
         {/* Header do Artigo */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 mb-6">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-8 mb-6">
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className={`px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(artigo.categoria)}`}>
               {artigo.categoria.charAt(0).toUpperCase() + artigo.categoria.slice(1)}
@@ -617,18 +626,18 @@ export default function ArtigoDetalhes() {
         </div>
 
         {/* Conteúdo */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
-          <article className="prose prose-lg max-w-none">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
+          <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-strong:text-gray-900 dark:prose-strong:text-white">
             {formatarConteudo(artigo.conteudo)}
           </article>
 
           {/* Footer do Artigo */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <div className="bg-blue-50 rounded-lg p-6">
-              <h4 className="text-lg font-semibold text-blue-900 mb-2">
+          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-600">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-6 border border-blue-100 dark:border-blue-800/30">
+              <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-200 mb-2">
                 Gostou deste artigo?
               </h4>
-              <p className="text-blue-800 mb-4">
+              <p className="text-blue-800 dark:text-blue-300 mb-4">
                 Continue aprendendo com mais conteúdos de educação financeira no MoneyMapp.
               </p>
               <button

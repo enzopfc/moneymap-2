@@ -1,5 +1,39 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { PiggyBank, TrendingUp, Shield, Smartphone, ChevronRight, CheckCircle, BarChart3, Target, Users, ArrowRight, Clock, Star } from 'lucide-react'
+
+export default function Home() {
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
+
+  const handleDemoAccess = async () => {
+    setLoading(true)
+    localStorage.setItem('demoMode', 'true')
+    setTimeout(() => {
+      setLoading(false)
+      navigate('/dashboard')
+    }, 1500)
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      {/* Header */}
+      <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+              <PiggyBank className="w-6 h-6 text-white" />
+            </div>
+            <span className="text-2xl font-bold text-gray-800 dark:text-white">MoneyMapp</span>
+          </div>
+          <button 
+            onClick={() => navigate('/login')}
+            className="px-6 py-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+          >
+            Fazer Login
+          </button>
+        </div>
+      </header> useNavigate } from 'react-router-dom'
 import { 
   ChevronRight, 
   PiggyBank, 
