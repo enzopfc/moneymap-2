@@ -1,0 +1,14 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
+
+export default function NotFound() {
+  const { token } = useAuth()
+  return (
+    <div className="max-w-lg mx-auto mt-16 text-center card p-8">
+      <h1 className="text-2xl font-bold mb-2">404 - Página não encontrada</h1>
+      <p className="text-gray-600 mb-4">A página que você procura pode ter sido removida ou estar temporariamente indisponível.</p>
+      <Link to={token ? '/dashboard' : '/login'} className="text-emerald-700 hover:underline">Voltar</Link>
+    </div>
+  )
+}
