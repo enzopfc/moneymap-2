@@ -95,11 +95,17 @@ export default function Configuracoes() {
   ]
 
   return (
-    <div className="p-6">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">Configurações</h1>
-        <p className="text-gray-600">Gerencie suas preferências e configurações da conta</p>
+    <div className="min-h-screen bg-gray-50 animate-in fade-in duration-500">
+      {/* Header */}
+      <div className="bg-white border-b border-gray-200 px-4 py-6 sm:px-6">
+        <div className="animate-in slide-in-from-left duration-700">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Configurações</h1>
+          <p className="text-gray-600">Gerencie suas preferências e configurações da conta</p>
+        </div>
       </div>
+
+      {/* Main Content */}
+      <div className="px-4 py-6 sm:px-6">
 
       {/* Alertas */}
       {mensagem && (
@@ -551,9 +557,13 @@ export default function Configuracoes() {
         </div>
       </div>
 
+      </div>
+
       {/* Copyright */}
-      <div className="mt-8 text-right text-sm text-gray-500">
-        © 2024 MoneyMapp TCC. Todos os direitos reservados.
+      <div className="px-4 py-6 sm:px-6">
+        <div className="text-right text-sm text-gray-500">
+          © 2024 MoneyMapp TCC. Todos os direitos reservados.
+        </div>
       </div>
     </div>
   )

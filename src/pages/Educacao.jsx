@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { BookOpen, TrendingUp, PiggyBank, Shield, Target, Lightbulb, Play, Clock, CheckCircle, Star } from 'lucide-react'
 
 // Dados mockados para demonstração
@@ -110,10 +111,15 @@ function CategoriaCard({ categoria }) {
 }
 
 function ArtigoCard({ artigo }) {
+  const navigate = useNavigate()
+
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+    <div 
+      className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:scale-105"
+      onClick={() => navigate(`/educacao/artigo/${artigo.id}`)}
+    >
       <div className="flex items-start justify-between mb-3">
-        <h3 className="text-lg font-semibold text-gray-900 pr-4">{artigo.titulo}</h3>
+        <h3 className="text-lg font-semibold text-gray-900 pr-4 hover:text-blue-600 transition-colors">{artigo.titulo}</h3>
         {artigo.concluido ? (
           <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
         ) : (

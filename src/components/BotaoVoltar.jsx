@@ -7,13 +7,26 @@ export default function BotaoVoltar() {
   const location = useLocation()
   
   // Páginas que não devem mostrar o botão voltar
-  const paginasSemVoltar = ['/home', '/login', '/dashboard']
+  const paginasSemVoltar = ['/home', '/login']
   
   if (paginasSemVoltar.includes(location.pathname)) {
     return null
   }
 
   const handleVoltar = () => {
+    // Dashboard volta para home
+    if (location.pathname === '/dashboard') {
+      navigate('/home')
+      return
+    }
+    
+    // Artigos voltam para educação
+    if (location.pathname.startsWith('/educacao/artigo/')) {
+      navigate('/educacao')
+      return
+    }
+    
+    // Outras páginas voltam para dashboard ou histórico
     if (window.history.length > 1) {
       navigate(-1)
     } else {

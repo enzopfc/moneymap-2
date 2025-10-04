@@ -84,15 +84,16 @@ export default function Relatorios() {
   const saldoTotal = totalReceitas - totalDespesas
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="min-h-screen bg-gray-50 animate-in fade-in duration-500">
       {/* Header */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Relatórios Financeiros</h1>
-          <p className="text-gray-600">Análise detalhada das suas finanças</p>
-        </div>
+      <div className="bg-white border-b border-gray-200 px-4 py-6 sm:px-6">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+          <div className="animate-in slide-in-from-left duration-700">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Relatórios Financeiros</h1>
+            <p className="text-gray-600">Análise detalhada das suas finanças</p>
+          </div>
         
-        <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 animate-in slide-in-from-right duration-700">
           <select 
             value={filtroSelecionado}
             onChange={(e) => setFiltroSelecionado(e.target.value)}
@@ -107,10 +108,13 @@ export default function Relatorios() {
             <Download className="w-4 h-4" />
             Exportar
           </button>
+          </div>
         </div>
       </div>
 
-      {/* Cards de Resumo */}
+      {/* Main Content */}
+      <div className="px-4 py-6 sm:px-6 space-y-6">
+        {/* Cards de Resumo */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatCard 
           title="Total de Receitas"
@@ -261,10 +265,13 @@ export default function Relatorios() {
           </div>
         </div>
       </div>
+      </div>
 
       {/* Copyright */}
-      <div className="mt-8 text-right text-sm text-gray-500">
-        © 2024 MoneyMapp TCC. Todos os direitos reservados.
+      <div className="px-4 py-6 sm:px-6">
+        <div className="text-right text-sm text-gray-500">
+          © 2024 MoneyMapp TCC. Todos os direitos reservados.
+        </div>
       </div>
     </div>
   )

@@ -10,6 +10,7 @@ import Transacoes from '../pages/Transacoes'
 import Metas from '../pages/Metas'
 import Relatorios from '../pages/Relatorios'
 import Educacao from '../pages/Educacao'
+import ArtigoDetalhes from '../pages/ArtigoDetalhes'
 import Configuracoes from '../pages/Configuracoes'
 import NotFound from '../pages/NotFound'
 
@@ -36,6 +37,7 @@ export default function Rotas() {
       <Route path="/metas" element={<RotaPrivada><Metas /></RotaPrivada>} />
       <Route path="/relatorios" element={<RotaPrivada><Relatorios /></RotaPrivada>} />
       <Route path="/educacao" element={<RotaPrivada><Educacao /></RotaPrivada>} />
+      <Route path="/educacao/artigo/:id" element={<RotaPrivada><ArtigoDetalhes /></RotaPrivada>} />
       <Route path="/configuracoes" element={<RotaPrivada><Configuracoes /></RotaPrivada>} />
 
       {/* Rotas de Redirecionamento */}

@@ -152,11 +152,11 @@ export default function Transacoes() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6 animate-in fade-in duration-500">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Transações</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Transações</h1>
           <p className="text-gray-600">Gerencie suas receitas e despesas</p>
         </div>
         <button 

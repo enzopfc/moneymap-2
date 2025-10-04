@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { 
   TrendingUp, 
   TrendingDown, 
@@ -7,7 +8,8 @@ import {
   CreditCard,
   ArrowUpRight,
   ArrowDownRight,
-  Clock
+  Clock,
+  ExternalLink
 } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 
@@ -108,6 +110,8 @@ function TransactionItem({ transaction }) {
 }
 
 export default function Dashboard() {
+  const navigate = useNavigate()
+  
   const formatMoney = (value) => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -243,6 +247,61 @@ export default function Dashboard() {
         </div>
       </div>
 
+      {/* Links Rápidos */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <button
+          onClick={() => navigate('/transacoes')}
+          className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 group text-left"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">Transações</h4>
+              <p className="text-sm text-gray-600 mt-1">Gerencie receitas e despesas</p>
+            </div>
+            <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
+          </div>
+        </button>
+
+        <button
+          onClick={() => navigate('/metas')}
+          className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 group text-left"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h4 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors">Metas</h4>
+              <p className="text-sm text-gray-600 mt-1">Acompanhe seus objetivos</p>
+            </div>
+            <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-green-600 transition-colors" />
+          </div>
+        </button>
+
+        <button
+          onClick={() => navigate('/relatorios')}
+          className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 group text-left"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h4 className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">Relatórios</h4>
+              <p className="text-sm text-gray-600 mt-1">Análise financeira detalhada</p>
+            </div>
+            <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+          </div>
+        </button>
+
+        <button
+          onClick={() => navigate('/educacao')}
+          className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 group text-left"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h4 className="font-semibold text-gray-900 group-hover:text-orange-600 transition-colors">Educação</h4>
+              <p className="text-sm text-gray-600 mt-1">Aprenda sobre finanças</p>
+            </div>
+            <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-orange-600 transition-colors" />
+          </div>
+        </button>
+      </div>
+
       {/* Dicas Rápidas */}
       <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200 p-6">
         <div className="flex items-center mb-4">
@@ -257,11 +316,19 @@ export default function Dashboard() {
           Considere investir essa quantia em uma reserva de emergência ou em investimentos de baixo risco.
         </p>
         
-        <div className="flex gap-3">
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+        <div className="flex flex-wrap gap-3">
+          <button 
+            onClick={() => navigate('/metas')}
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 text-sm font-medium hover:scale-105 active:scale-95"
+          >
+            <ExternalLink className="w-4 h-4" />
             Ver Metas de Economia
           </button>
-          <button className="px-4 py-2 bg-white text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-50 transition-colors text-sm font-medium">
+          <button 
+            onClick={() => navigate('/educacao')}
+            className="flex items-center gap-2 px-4 py-2 bg-white text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-50 transition-all duration-300 text-sm font-medium hover:scale-105 active:scale-95"
+          >
+            <ExternalLink className="w-4 h-4" />
             Educação Financeira
           </button>
         </div>
