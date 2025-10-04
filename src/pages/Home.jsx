@@ -175,6 +175,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Benefícios */}
+      <section className="py-20 bg-gradient-to-r from-indigo-50 to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Por que escolher o MoneyMapp?</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Descubra as vantagens que fazem do MoneyMapp a melhor escolha para suas finanças
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Interface Simples</h3>
+              <p className="text-gray-600">Design intuitivo e fácil de usar, mesmo para iniciantes em tecnologia.</p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <BarChart3 className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Relatórios Visuais</h3>
+              <p className="text-gray-600">Gráficos interativos que transformam seus dados em insights valiosos.</p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Target className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Metas Claras</h3>
+              <p className="text-gray-600">Defina objetivos realistas e acompanhe seu progresso automaticamente.</p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Segurança Total</h3>
+              <p className="text-gray-600">Seus dados são protegidos com a mais alta tecnologia de segurança.</p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Educação Gratuita</h3>
+              <p className="text-gray-600">Conteúdo educativo completo para melhorar sua educação financeira.</p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">Suporte Dedicado</h3>
+              <p className="text-gray-600">Equipe pronta para ajudar você a alcançar seus objetivos financeiros.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Avaliações */}
       <section className="py-20 bg-gradient-to-r from-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
