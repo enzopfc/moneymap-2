@@ -550,6 +550,11 @@ export default function Configuracoes() {
           </div>
         </div>
       </div>
+
+      {/* Copyright */}
+      <div className="mt-8 text-right text-sm text-gray-500">
+        © 2024 MoneyMapp TCC. Todos os direitos reservados.
+      </div>
     </div>
   )
 }
